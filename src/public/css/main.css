@@ -1,0 +1,75 @@
+@import "https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400|Pacifico|Yellowtail";
+
+body {
+    background-image: url("/images/tractores.jpg");
+    background-color: #cccccc;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}
+
+/*body {
+    background: #1f4037;
+    background: -webkit-linear-gradient(to right, #99f2c8, #1f4037);  
+    background: linear-gradient(to right, #99f2c8, #1f4037); 
+}*/
+
+nav {
+    background: rgb(50, 50, 50);
+    background: rgba(209, 209, 209, 0.6);
+}
+
+.jumbotron {
+    background: rgb(50, 54, 54);
+    background: rgba(220, 220, 220, 0.90);
+}
+
+.btn:hover {
+    /*background: #1f4037; 
+    background: -webkit-linear-gradient(to right, #99f2c8, #1f4037);  
+    background: linear-gradient(to right, #99f2c8, #1f4037);
+    background-size: 350%;*/
+    background-color: #06d332;
+}
+
+.opcion:hover {
+    font-weight: bold;
+}
+
+
+.logo {
+    width: 20%;
+}
+/*
+.nombre {
+    color: #1a438f;
+    font-family: "Yellowtail", cursive;
+    font-size: 2em;
+    letter-spacing: 2px;
+    margin-top: -5px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}*/
+
+
+#header {
+    align-items: center;
+    background: rgb(255, 255, 255);
+    cursor: default;
+    top: 0;
+    width: 100%;
+    z-index: 10001;
+    text-align: center;
+}
+
+#header .nombre {
+    color: #1db925;
+    font-family: "Yellowtail", cursive;
+    font-size: 2em;
+    letter-spacing: 2px;
+    margin-top: -5px;
+    text-decoration: none;
+    display: inline-block;
+}

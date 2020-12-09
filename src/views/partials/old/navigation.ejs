@@ -1,0 +1,49 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-light navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="/" style="color: black;">
+            <img src="/images/alqagro2.png" width="30" height="30" class="d-inline-block align-top" alt="">Alqagro
+          </a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <% if (!user){ %>
+                <!--<li class="nav-item active">
+                    <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                </li>-->
+                <li class="nav-item active">
+                    <a class="nav-link opcion" href="/info" style="color: black;">Acerca</a>
+                </li>
+                <% } else{ %>
+                <!--<li class="nav-item">
+                    <a class="nav-link" href="#">Mi perfil</a>
+                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link opcion" href="/info" style="color: black;">Acerca</a>
+                </li>
+                <% } %>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <% if (user){ %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+                            Máquinas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item opcion" href="/mymachines" style="color: black;">Mis máquinas</a>
+                        <a class="dropdown-item opcion" href="/mymachines/add" style="color: black;">Añadir máquina</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item opcion" href="/users/logout" style="color: black;">Cerrar sesión</a>
+                        </div>
+                    </li>
+                <% } else{ %>
+                <li class="nav-item">
+                    <a class="nav-link opcion" href="/users/signup" style="color: black;">Registrarse</a>
+                </li>
+                <!--<li class="nav-item">
+                    <a class="nav-link" href="/users/signin">Ingresar</a>
+                </li>-->
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>

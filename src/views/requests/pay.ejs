@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('../partials/head.ejs') -%>
+        <title>Alqagro</title>
+</head>
+
+<body>
+    <%- include ('../partials/navigation.ejs') -%>
+
+        <main class="container p-4">
+            <%- include ('../partials/messages.ejs') -%>
+           
+                <div class="jumbotron mt-4">
+                    <div class="media">
+                        <img class="mr-3 logo img-fluid" src="/images/alqagroV2_sin_fondo.png" alt="Generic placeholder image">
+                        <div class="media-body">
+                            <!--<h5 class="display-3 " style = "font-family: brush script mt,courier;">Alqagro</h5>-->
+                            <h4>Confirmación de alquiler</h4>
+                            <hr class="my-3">
+                            <form action="/requests/accepted/<%= machine._id %>" method="POST">
+                                <input type="hidden" name="_method" value="PUT">
+                                <div class="form-group">
+                                    <h6>Máquina alquilada: </h6>
+                                    <p>
+                                        <%= machine.tipo %>
+                                    </p>
+                                </div>
+                                <div class="form-group">
+                                    <h6>Ubicación de la finca: </h6>
+                                    <p>
+                                        <%= detalles.finca %>
+                                    </p>
+                                    <input type="hidden" name="finca" value="<%= detalles.finca %>">
+                                </div>
+                                <div class="form-group">
+                                    <h6>Hectareas a trabajar: </h6>
+                                    <p>
+                                        <%= detalles.area %>
+                                    </p>
+                                    <input type="hidden" name="area" value="<%= detalles.area %>">
+                                </div>
+                                <div class="form-group">
+                                    <h6>Labores a realizar: </h6>
+                                    <% if(detalles.arar){ %>
+                                        <div>
+                                        Arar <input type="hidden" name="arar" value=true>
+                                        </div>
+                                    <% } %>
+                                    <% if(detalles.rastrillar){ %>
+                                        <div>
+                                        Rastrillar <input type="hidden" name="rastrillar" value=true>
+                                        </div>
+                                    <% } %>
+                                    <% if(detalles.fumigar){ %>
+                                        <div>
+                                        Fumigar <input type="hidden" name="fumigar" value=true>
+                                        </div>
+                                    <% } %>
+                                    <% if(detalles.sembrar){ %>
+                                        <div>
+                                        Sembrar <input type="hidden" name="sembrar" value=true>
+                                        </div>
+                                    <% } %>
+                                    <% if(detalles.nivelar){ %>
+                                        <div>
+                                        Nivelar <input type="hidden" name="nivelar" value=true>
+                                        </div>
+                                    <% } %>
+                                </div>
+                                <div class="form-group">
+                                    <h6>Fecha de alquiler: </h6>
+                                    <p>
+                                        <%= detalles.fecha_alq %>
+                                    </p>
+                                    <input type="hidden" name="fecha_alq" value="<%= detalles.fecha_alq %>">
+                                </div>
+                                <div class="form-group">
+                                    <h6>Total a pagar: </h6>
+                                    <p>
+                                        <%= total %>
+                                    </p>
+                                    <input type="hidden" name="total" value="<%= total %>">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-block" type="submit">
+                                        Pagar
+                                    </button>
+                                </div>                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+           
+        <%- include ('../partials/footer.ejs') -%>
+</body>
+
+</html>

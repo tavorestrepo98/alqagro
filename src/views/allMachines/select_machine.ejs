@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('../partials/head.ejs') -%>
+    <title>Alqagro</title>
+</head>
+<body>
+    <%- include ('../partials/navigation.ejs') -%>
+
+    <main class="container p-4">
+    <%- include ('../partials/messages.ejs') -%>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Definir detalles</h3>
+                </div>
+                <div class="card-body">
+                    <div align="center">
+                        <img src="/uploads/<%= machine.rutaImage%>" alt="Not Found" width="180px" height="110px">
+                    </div>
+
+                    <h6>Tipo de máquina:</h6>
+                    <p>
+                        <%= machine.tipo %>
+                    </p>
+                    <h6>Ubicación:</h6>
+                    <p>
+                        <%= machine.ubicacion %>
+                    </p>
+                    <h6>Valor préstamo por hectarea:</h6>
+                    <p>
+                        <%= machine.valor %>
+                    </p>
+                    <h6>Disponible para:</h6>
+                    <% if(machine.arar){ %>
+                        <p>Arar</p>
+                    <% } %>
+                    <% if(machine.rastrillar){ %>
+                        <p>Rastrillar</p>
+                    <% } %>
+                    <% if(machine.fumigar){ %>
+                        <p>Fumigar</p>
+                    <% } %>
+                    <% if(machine.nivelar){ %>
+                        <p>Nivelar</p>
+                    <% } %>
+                    <% if(machine.sembrar){ %>
+                        <p>Sembrar</p>
+                    <% } %>
+                    <h6>Añade tus datos:</h6>
+                    <form action="/requests/pay/<%= machine._id %>" method="POST">
+                        <input type="hidden" name="_method" value="PUT">
+                        <div class="form-group">
+                            <input type="text" name="finca" class="form-control" placeholder="Ubicación de la finca">
+                        </div>
+                        <div class="form-group">
+                            <input id="area" type="number" name="area" class="form-control" placeholder="Número de hectareas">
+                        </div>
+                        <div>
+                            <label for="fecha_alq">Fecha:</label>
+                            <input type="date" id="fecha_alq" name="fecha_alq" min="2020-12-09">
+                        </div>
+                        <div class="form-group">
+                            <h6>Labores a realizar: </h6>
+                            <% if(machine.arar){ %>
+                                <div>
+                                Arar <input type="checkbox" name="arar" value=true>
+                                </div>
+                            <% } %>
+                            <% if(machine.rastrillar){ %>
+                                <div>
+                                Rastrillar <input type="checkbox" name="rastrillar" value=true>
+                                </div>
+                            <% } %>
+                            <% if(machine.fumigar){ %>
+                                <div>
+                                Fumigar <input type="checkbox" name="fumigar" value=true>
+                                </div>
+                            <% } %>
+                            <% if(machine.sembrar){ %>
+                                <div>
+                                Sembrar <input type="checkbox" name="sembrar" value=true>
+                                </div>
+                            <% } %>
+                            <% if(machine.nivelar){ %>
+                                <div>
+                                Nivelar <input type="checkbox" name="nivelar" value=true>
+                                </div>
+                            <% } %>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="submit">
+                                Guardar
+                            </button>
+                        </div>                                
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </main>
+    <%- include ('../partials/footer.ejs') -%>
+</body>
+</html>

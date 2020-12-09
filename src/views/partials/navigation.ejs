@@ -1,0 +1,54 @@
+<!-- NAVBAR -->
+<header id="header">
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        
+        <a class="navbar-brand mx-auto nombre" href="/" style=""> Alqagro</a>
+                
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <% if (!user){ %>
+                <!--<li class="nav-item active">
+                    <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                </li>-->
+                <li class="nav-item active">
+                    <a class="nav-link opcion" href="/info" style="color: black;">Nosotros<span class="sr-only">(current)</span></a>
+                </li>
+                <% } else{ %>
+                <!--<li class="nav-item">
+                    <a class="nav-link" href="#">Mi perfil</a>
+                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link opcion" href="/allmachines/list" style="color: black;">Alquiler</a>
+                </li>
+                <% } %>
+            </ul>
+            <ul class="navbar-nav ml-2">
+                <% if (user){ %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+                            Máquinas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item opcion" href="/mymachines" style="color: black;">Mis máquinas</a>
+                        <a class="dropdown-item opcion" href="/mymachines/add" style="color: black;">Añadir máquina</a>
+                        <a class="dropdown-item opcion" href="/myrequests" style="color: black;">Solicitudes hechas</a>
+                        <a class="dropdown-item opcion" href="/myrequestsReceived" style="color: black;">Solicitudes recibidas</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item opcion" href="/users/logout" style="color: black;">Cerrar sesión</a>
+                        </div>
+                    </li>
+                <% } else{ %>
+                <li class="nav-item">
+                    <a class="nav-link opcion" href="/users/signup" style="color: black;">Registrate</a>
+                </li>
+                <!--<li class="nav-item">
+                    <a class="nav-link" href="/users/signin">Ingresar</a>
+                </li>-->
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>
+</header>
+

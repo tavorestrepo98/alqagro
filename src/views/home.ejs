@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('./partials/head.ejs') -%>
+    <title>Alqagro</title>
+</head>
+<body>
+    
+        <%- include ('partials/navigation.ejs') -%>
+
+    
+    <main class="container">
+        <div class="jumbotron mt-4">
+            <div class="media">
+                <img class="mr-3 logo img-fluid" src="/images/alqagroV2_sin_fondo.png" alt="Generic placeholder image">
+                <div class="media-body">
+                    <!--<h5 class="display-3 " style = "font-family: brush script mt,courier;">Alqagro</h5>-->
+                    <p>Somos una plataforma enfocada a crear una comunidad que pueda conectar agricultores que deseen los servicios ofrecidos por las máquinas agricolas con aquellas personas que posean dichas máquinas de modo que se puedan aprovechar mejor los recursos existentes.</p>
+                    <hr class="my-3">
+                    <h5 style = "font-family: arial narrow ,courier;">Estamos aquí para ayudarte a llevar la mecanización a tus cultivos</h5>
+                    <h4 style = "font-family: arial narrow ,courier;">¿Qué esperas para unirte a nosotros?</h4><br>
+                    <a href="/users/signin" class="btn btn-outline-success btn-lg">Ingresa</a>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <%- include ('partials/footer.ejs') -%>
+</body>
+</html>

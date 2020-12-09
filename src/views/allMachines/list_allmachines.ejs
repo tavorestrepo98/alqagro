@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('../partials/head.ejs') -%>
+        <title>Alqagro</title>
+</head>
+
+<body>
+    <%- include ('../partials/navigation.ejs') -%>
+
+        <main class="container p-4">
+            <%- include ('../partials/messages.ejs') -%>
+                <div class="row ">
+                    <% if(machines.length > 0){ %>
+                        <% for(var i=0; i < machines.length; i++) { %>
+                            <div class="col-md-4 mx-auto">
+                                <div class="card mb-2">
+                                    <div class="card-header">
+                                        <h4 class="card-title d-flex justify-content-between align-items-center">
+                                            Máquina #
+                                            <%= i+1 %>
+                                        </h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div align="center">
+                                            <img src="/uploads/<%= machines[i].rutaImage%>" alt="Not Found" width="140px" height="100px">
+                                        </div>
+
+                                        <h6>Tipo de máquina:</h6>
+                                        <p>
+                                            <%= machines[i].tipo %>
+                                        </p>
+                                        <h6>Ubicación:</h6>
+                                        <p>
+                                            <%= machines[i].ubicacion %>
+                                        </p>
+                                        <h6>Valor préstamo por hectarea:</h6>
+                                        <p>
+                                            <%= machines[i].valor %>
+                                        </p>
+                                        <h6>Disponible para:</h6>
+                                        <% if(machines[i].arar){ %>
+                                            <p>Arar</p>
+                                        <% } %>
+                                        <% if(machines[i].rastrillar){ %>
+                                            <p>Rastrillar</p>
+                                        <% } %>
+                                        <% if(machines[i].fumigar){ %>
+                                            <p>Fumigar</p>
+                                        <% } %>
+                                        <% if(machines[i].nivelar){ %>
+                                            <p>Nivelar</p>
+                                        <% } %>
+                                        <% if(machines[i].sembrar){ %>
+                                            <p>Sembrar</p>
+                                        <% } %>
+                                        <h6>Estado máquina:</h6>
+                                        <% if(machines[i].estado){ %>
+                                            <p>Disponible</p>
+                                        <% } else{ %>
+                                        <p>En préstamo</p>
+                                        <% } %>
+                                        <a class="btn btn-primary btn-block" href="/allmachines/select/<%= machines[i]._id %>" style="color: white;">Alquilar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% } else{ %>
+                    <div class="card mx-auto">
+                        <div class="card-body">
+                            <p class="lead">No hay máquinas registradas aún.</p>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+
+        </main>
+        <%- include ('../partials/footer.ejs') -%>
+</body>
+
+</html>

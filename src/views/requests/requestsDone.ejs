@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('../partials/head.ejs') -%>
+        <title>Alqagro</title>
+</head>
+
+<body>
+    <%- include ('../partials/navigation.ejs') -%>
+
+        <main class="container p-4">
+            <%- include ('../partials/messages.ejs') -%>
+                <div class="row ">
+                    <% if(requests.length > 0){ %>
+                        <% for(var i=0; i < requests.length; i++) { %>
+                            <div class="col-md-4 mx-auto">
+                                <div class="card mb-2">
+                                    <div class="card-header">
+                                        <h4 class="card-title d-flex justify-content-between align-items-center">
+                                            Solicitud #
+                                            <%= i+1 %>
+                                        </h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6>Tipo de máquina:</h6>
+                                        <p>
+                                            <%= requests[i].tipo %>
+                                        </p>
+                                        <h6>Ubicación de la finca:</h6>
+                                        <p>
+                                            <%= requests[i].finca %>
+                                        </p>
+                                        <h6>Hectareas a trabajar:</h6>
+                                        <p>
+                                            <%= requests[i].area %>
+                                        </p>
+                                        <h6>Labores a realizar:</h6>
+                                        <% if(requests[i].arar){ %>
+                                            <p>Arar</p>
+                                        <% } %>
+                                        <% if(requests[i].rastrillar){ %>
+                                            <p>Rastrillar</p>
+                                        <% } %>
+                                        <% if(requests[i].fumigar){ %>
+                                            <p>Fumigar</p>
+                                        <% } %>
+                                        <% if(requests[i].nivelar){ %>
+                                            <p>Nivelar</p>
+                                        <% } %>
+                                        <% if(requests[i].sembrar){ %>
+                                            <p>Sembrar</p>
+                                        <% } %>
+                                        <h6>Fecha de solicitud:</h6>
+                                        <p>
+                                            <%= requests[i].date %>
+                                        </p>
+                                        <h6>Fecha de alquiler:</h6>
+                                        <p>
+                                            <%= requests[i].fecha_alq %>
+                                        </p>
+                                        <h6>Total a pagar:</h6>
+                                        <p>
+                                            $ <%= requests[i].total %> COP
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% } else{ %>
+                    <div class="card mx-auto">
+                        <div class="card-body">
+                            <p class="lead">No hay solicitudes realizadas aún.</p>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+
+        </main>
+        <%- include ('../partials/footer.ejs') -%>
+</body>
+
+</html>
